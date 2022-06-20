@@ -14,7 +14,7 @@ import javax.persistence.*;
 public class BoardEntity extends TimeEntity {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
 
     @Column(length = 10, nullable = false)
@@ -23,7 +23,7 @@ public class BoardEntity extends TimeEntity {
     @Column(length = 100, nullable = false)
     private String title;
 
-    @Column(columnDefinition = "TEXT", nullable = false)
+    @Column(nullable = false)
     private String content;
 
     @Builder
