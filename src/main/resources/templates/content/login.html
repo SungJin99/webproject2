@@ -1,0 +1,70 @@
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>로그인</title>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/css/login.css" type="text/css">
+</head>
+<body>
+        <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>○○○ 병원</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" th:href="@{assets/favicon.ico}" />
+        <!-- Bootstrap icons-->
+        <link th:href="@{https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css}" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link th:href="@{css/styles.css}" rel="stylesheet" />
+    </head>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" th:href="@{assets/favicon.ico}" />
+        <!-- Bootstrap icons-->
+        <link th:href="@{https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css}" rel="stylesheet" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link th:href="@{css/styles.css}" rel="stylesheet" />
+    </head>
+ 
+        <!-- Responsive navbar-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" th:href="@{/}">○○○ 병원</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" th:href="@{/}">홈</a></li>
+                        <li class="nav-item"><a class="nav-link" th:href="@{about}">소개</a></li>
+                        <li class="nav-item"><a class="nav-link" th:href="@{#!}">진료과목</a></li>
+                        <li class="nav-item"><a class="nav-link" th:href="@{#!}">예약</a></li>
+                    </ul>
+                <form class="d-flex">
+    				<button class="btn btn-outline-success me-2" type="button"onclick="location.href='/register'">회원가입</button>
+    				<button class="btn btn-outline-success me-2" type="button"onclick="location.href='/login'">로그인</button>
+  				</form>
+                </div>
+            </div>
+        </nav>
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <br>
+        <img src="/images/1.jpg" style="width: 300px; align-content: center">
+        <h1>○○○ 병원</h1>
+        <h2 th:if="${fail == true}" style="color: tomato;">로그인에 실패하였습니다.</h2>
+        <h2 th:if="${newUser == true}" style="color: forestgreen;">회원가입이 완료되었습니다. 로그인하세요.</h2>
+        <form method="post" action="/auth">
+            <input type="text" name="username" class="fadeIn second" placeholder="ID">
+            <input type="password" name="password" class="fadeIn third" placeholder="비밀번호">
+            <input type="submit" value="로그인" class="fadeIn fourth">
+        </form>
+
+        <div id="formFooter">
+            <a class="underlineHover" href="/register">회원가입 하시겠습니까?</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

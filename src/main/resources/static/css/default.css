@@ -1,0 +1,24 @@
+@charset "UTF-8";
+
+
+#footer{
+	width : 100;
+	height: 30px;
+	background-color:blue;
+	
+}
+
+#sidebar{
+	width:100px;
+	height:100%;
+	background-color:black;
+}
+
+
+
+#content_div{
+	width:700px; 
+	height:700px; 
+/*   resize: horizontal; // 가로크기만 조절가능 
+	resize: vertical;  세로크기만 조절가능  */
+}

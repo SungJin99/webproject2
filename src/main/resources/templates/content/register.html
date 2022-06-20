@@ -1,0 +1,146 @@
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charSet="UTF-8">
+    <title>회원가입</title>
+    <link rel="stylesheet" href="//stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+          integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossOrigin="anonymous">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+
+    <script src="/js/register.js"></script>
+    <div th:insert="~{common/header::header}"></div>
+</head>
+<body>
+<br>
+<div style="background-color: #EEEEEE;" class="container">
+    <br>
+    <h2>회원가입</h2>
+    <form class="was-validated" id="registerForm" method="post" action="/register" onSubmit="return isValidate(this);">
+        <div class="form-group">
+            <label for="inputName">이름</label>
+            <div>
+                <input class="form-control" type="text" name="name" id="inputName"
+                       oninput="nameCheck(this)" pattern="^[가-힣]{2,5}$" required>
+                <small class="form-text text-muted">이름은 한글로 2~5자로 설정할 수 있습니다.</small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="inputUsername">ID</label>
+            <div class="form-group">
+                <input type="text" id="inputUsername" name="username" minlength="4" maxlength="20" pattern="^[0-9a-z]+${4,20}"
+                       oninput="usernameCheck(this)" required/>
+                <button class="btn btn-secondary" name="idChk" id="btnIdChk" type="button"
+                        onClick="fn_idCheck(this.form);" value="#">중복 확인
+                </button>
+                <small class="form-text text-muted">로그인 할 때 사용할 ID 입니다. ID는 4 ~ 20자리의 영문 또는 숫자만 사용할 수 있습니다. 중복 확인 이후 수정할 수 없으므로 신중하게 결정하시기 바랍니다.</small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="inputPassword">비밀번호</label>
+            <div>
+                <input class="form-control"
+                       id="inputPassword"
+                       type="password"
+                       name="password"
+                       minlength="8"
+                       pattern="^[0-9a-z]+${8,}"
+                       required>
+                <small class="form-text text-muted">비밀번호는 영문, 숫자 조합으로 8자 이상 입력하세요.</small>
+            </div>
+        </div>
+
+        <div>
+            <label for="inputPasswordRe">비밀번호 확인</label>
+            <div>
+                <input class="form-control" id="inputPasswordRe" pattern="^[0-9a-z]+${8,}$" type="password" name="passwordRe" minlength="8" required>
+                <small class="form-text text-muted">비밀번호를 한번 더 입력해주세요.</small>
+            </div>
+            <div id="invalidFeedbackPasswordRe" class="invalid-feedback">
+                비밀번호와 동일하게 입력하세요.
+            </div>
+        </div>
+
+        <div>
+            <label for="inputPhone">전화번호</label>
+            <div>
+                <input type="text"
+                       id="inputPhone"
+                       name="phone"
+                       class="form-control m-input"
+                       maxLength="13"
+                       placeholder="010-1234-5678"
+                       pattern="^0([1|2|3|4|5|6|7])([0|1|2|3|4|5|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$"
+                       required>
+            </div>
+        </div>
+         <div>
+            <label for="inputGender">성별</label>
+            <div>
+                <input class="form-control" id="inputgender" pattern="^[가-힣]{2,5}$" type="text" name="Gender" required>
+                <small class="form-text text-muted">성별을 입력해주세요.</small>
+            </div>
+         </div>
+                  <div>
+            <label for="inputGender">생년월일</label>
+            <div>
+                <input class="form-control" id="inputbirth" type="date" name="birth" required>
+                <small class="form-text text-muted">생년월일을 입력해주세요.</small>
+            </div>
+         </div>
+                  <div>
+            <label for="inputGender">주소</label>
+            <div>
+                <input class="form-control" id="inputaddress" pattern="^[가-힣]{5,50}$" type="text" name="address" required>
+                <small class="form-text text-muted">주소를 입력해주세요.</small>
+            </div>
+         </div>
+        <br>
+        <div class="form-group">
+            <div class="controls">
+                <input type="submit" value="회원 가입" class="btn btn-primary">
+            </div>
+        </div>
+    </form>
+</div>
+
+</body>
+<div th:insert="~{common/footer::footer}"></div>
+<script>
+    // 출처: https://juein.tistory.com/43
+    let autoHypenPhone = function (str) {
+        str = str.replace(/[^0-9]/g, '');
+        let tmp = '';
+        if (str.length < 4) {
+            return str;
+        } else if (str.length < 7) {
+            tmp += str.substr(0, 3);
+            tmp += '-';
+            tmp += str.substr(3);
+            return tmp;
+        } else if (str.length < 11) {
+            tmp += str.substr(0, 3);
+            tmp += '-';
+            tmp += str.substr(3, 3);
+            tmp += '-';
+            tmp += str.substr(6);
+            return tmp;
+        } else {
+            tmp += str.substr(0, 3);
+            tmp += '-';
+            tmp += str.substr(3, 4);
+            tmp += '-';
+            tmp += str.substr(7);
+            return tmp;
+        }
+    }
+
+    const phoneNum = document.getElementById('inputPhone');
+    phoneNum.onkeyup = function () {
+        console.log(this.value);
+        this.value = autoHypenPhone(this.value);
+    }
+</script>
+</html>

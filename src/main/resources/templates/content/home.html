@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<title>○○○ 병원</title>
+<!-- Favicon-->
+<link rel="icon" type="image/x-icon" th:href="@{assets/favicon.ico}" />
+<!-- Bootstrap icons-->
+<link
+	th:href="@{https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css}"
+	rel="stylesheet" />
+<!-- Core theme CSS (includes Bootstrap)-->
+<link th:href="@{css/styles.css}" rel="stylesheet" />
+</head>
+<div th:insert="~{common/header::header}"></div>
+<!-- Header-->
+
+<!-- Features section-->
+<section class="py-5 border-bottom" id="features">
+	<div class="container px-5 my-5">
+		<div class="row gx-5">
+			<div class="col-lg-4 mb-5 mb-lg-0">
+				<div
+					class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
+					<i class="bi bi-collection"></i>
+				</div>
+				<h2 class="h4 fw-bolder">병원 소개</h2>
+				<p>병원 소개</p>
+				<a class="text-decoration-none" th:href="@{about}"> 바로가기 <i
+					class="bi bi-arrow-right"></i>
+				</a>
+			</div>
+			<div class="col-lg-4 mb-5 mb-lg-0">
+				<div
+					class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
+					<i class="bi bi-building"></i>
+				</div>
+				<h2 class="h4 fw-bolder">의사 소개</h2>
+				<p>의사 및 진료 과목 알아보기</p>
+				<a class="text-decoration-none" th:href="@{department}"> 바로가기 <i
+					class="bi bi-arrow-right"></i>
+				</a>
+			</div>
+			<div class="col-lg-4">
+				<div
+					class="feature bg-primary bg-gradient text-white rounded-3 mb-3">
+					<i class="bi bi-toggles2"></i>
+				</div>
+				<h2 class="h4 fw-bolder">게시판</h2>
+				<p>질문하기(로그인 필요)</p>
+				<a class="text-decoration-none" th:href="@{articles}"> 바로가기 <i
+					class="bi bi-arrow-right"></i>
+				</a>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- Pricing section-->
+
+<!-- Testimonials section-->
+<section class="py-5 border-bottom">
+	<div class="container px-5 my-5 px-5">
+		<div class="text-center mb-5">
+			<h2 class="fw-bolder">Customer testimonials</h2>
+			<p class="lead mb-0">Our customers love working with us</p>
+		</div>
+		<div class="row gx-5 justify-content-center">
+			<div class="col-lg-6">
+				<!-- Testimonial 1-->
+				<div class="card mb-4">
+					<div class="card-body p-4">
+						<div class="d-flex">
+							<div class="flex-shrink-0">
+								<i class="bi bi-chat-right-quote-fill text-primary fs-1"></i>
+							</div>
+							<div class="ms-4">
+								<p class="mb-1">Thank you for putting together such a great
+									product. We loved working with you and the whole team, and we
+									will be recommending you to others!</p>
+								<div class="small text-muted">- Client Name, Location</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Testimonial 2-->
+				<div class="card">
+					<div class="card-body p-4">
+						<div class="d-flex">
+							<div class="flex-shrink-0">
+								<i class="bi bi-chat-right-quote-fill text-primary fs-1"></i>
+							</div>
+							<div class="ms-4">
+								<p class="mb-1">The whole team was a huge help with putting
+									things together for our company and brand. We will be hiring
+									them again in the near future for additional work!</p>
+								<div class="small text-muted">- Client Name, Location</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<!-- Contact section-->
+
+</body>
+<div th:insert="~{common/footer::footer}"></div>
+</html>

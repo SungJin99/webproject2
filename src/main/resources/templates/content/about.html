@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
+<title>Blog Home - Start Bootstrap Template</title>
+<!-- Favicon-->
+<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+<!-- Core theme CSS (includes Bootstrap)-->
+<link href="css/styles.css" rel="stylesheet" />
+</head>
+<div th:insert="~{common/header::header}"></div>
+<body>
+	<!-- Page content--><br>
+		<div class="row">
+			<!-- Blog entries-->
+			<div class="container row" style="float: none; margin:100 auto;">
+        <div class="col-lg-8" style="float: none; margin:0 auto;">
+
+				<!-- Featured blog post-->
+				<div class="card mb-4">
+					<a href="#!"><img class="card-img-top"
+						src="/images/2.gif" alt="..." /></a>
+					<div class="card-body">
+						<div class="small text-muted">January 1, 2022</div>
+						<h2 class="card-title">Featured Post Title</h2>
+						<p class="card-text">
+							<span style="font-size: 14px;" class="purple_color b"> 저희
+								○○○병원은 1999년 3월 개원하여 지역 주민의<br> 관심과 격려 속에 의료분야에 새로운 변화를
+								추구하며, 짧은 연혁에도 불구하고 지역내 최고의 의료기관으로 성장하여<br> 왔습니다.
+							</span><br>
+							<br> ○○○병원은 <span class="orange_color b">"신속 정확한 진료"
+								"사랑의 봉사실현"</span> 이라는 院訓처럼 환자중심의 의료문화를 실현하기 위하여 첨단 의료기기의 도입과 쾌적한 진료환경
+							조성, 그리고 의료진을 포함한 전직원들이 항상 환자에게 봉사하는 마음으로 의료 서비스를 전개하여 왔습니다. <br>
+							<br> 또한, 시대의 변화에 맞춰 디지털 병원으로 거듭나기 위하여 병원의 모든 진료과정을 전산화하여 환자의
+							진료기록과 각종 의료정보를 한눈에 볼 수 있으며, 환자에게 양질의 의료서비스와 의료정보를 제공하고 있습니다. <br>
+							<br> 향후 사이버 진료서비스를 실현하고, 더 많은 의료정보를 나누기 위하여 금번 새로이 홈페이지를
+							개편하였습니다. 많은 격려와 질책을 기다리겠으며 저희 ○○○병원은 지금까지의 실적에 안주하지 않고 더 많은 노력을
+							하여 지역내 모든 주민께 사랑받는 병원, 초일류 병원으로 거듭나기 위하여 힘찬 전진을 하고자 합니다.
+						</p>
+					</div>
+				</div>
+				<!-- Nested row for non-featured blog posts-->
+			</div>
+			<!-- Pagination-->
+		</div>
+	</div>
+</body>
+	<div th:insert="~{common/footer::footer}"></div>
+</html>

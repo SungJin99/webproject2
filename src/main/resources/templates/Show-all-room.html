@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" th:href="@{/css/Reservation.css}" />
+<title>모든 장소 보기</title>
+</head>
+<body>
+	<div id="header">
+		<h2>○○○ 병원 예약시스템</h2>
+	</div>
+	
+	<div id="container">
+		<div id="content">
+			<th><input type="button" value="Back"
+				onclick="window.location.href='/reserv'; return false" class="button" /></th>
+			<table>
+				<tr>
+					<th>순번</th>
+					<th>진료실 번호</th>
+					<th>이름</th>
+					<th>시간</th>
+					<th>상태</th>
+				</tr>
+				<tr th:each="reservation: ${reservation}">	
+					
+					<td th:text="${reservation.id}"></td>
+					<td th:text="${reservation.doctorroom}"></td>
+					<td th:text="${reservation.name}"></td>
+					<td th:text="${reservation.consultation_hours}"></td>
+					<td> <a th:href="@{showUpdateForm/{id}(id=${reservation.id})}"><<span>Update</span></a> | <a th:href="@{deleteBooking/{id}(id=${reservation.id})}"><span>Delete</span></a></td>
+
+				</tr>
+
+			</table>
+			<p></p>
+			<th><input type="button" value="Back"
+		onclick="window.location.href='/reserv'; return false" class="button" /></th>
+		</div>
+	</div>
+
+</body>
+</html>

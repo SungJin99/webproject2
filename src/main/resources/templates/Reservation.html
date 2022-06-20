@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>○○○ 병원 예약시스템</title>
+<link rel="stylesheet" type="text/css" th:href="@{/css/Reservation.css}" />
+</head>
+<div th:insert="~{common/header::header}"></div>
+<body>
+
+	<div id="header">
+		<h2>○○○ 병원 예약시스템</h2>
+	</div>
+
+	<div>
+		<input type="button" value="예약 일정 생성"
+				onclick="window.location.href='showPlaceSetForm'; return false"
+				class="button" />
+		<table>
+			<!--<input type="button" value="예약 바로가기"
+				onclick="window.location.href='showReservationForm'; return false"
+				class="button" />-->
+			<input type="button" value="에약된 일정 표시"
+				onclick="window.location.href='showalloccupied'; return false"
+				class="button" />
+			<input type="button" value="예약 가능한 시간 표시"
+				onclick="window.location.href='showavailable'; return false"
+				class="button" />
+			<input type="button" value="모든 진료표시"
+				onclick="window.location.href='showall'; return false"
+				class="button" />
+		</table>
+	</div>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	Now is: <b th:text="${#execInfo.now.time}"></b>
+		
+</body>
+	<div th:insert="~{common/footer::footer}"></div>
+</html>

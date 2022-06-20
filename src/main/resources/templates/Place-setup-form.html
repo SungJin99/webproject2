@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" th:href="@{/css/Reservation.css}" />
+<link rel="stylesheet" type="text/css" th:href="@{/css/form.css}" />
+<title>장소 생성</title>
+</head>
+<body>
+<div id="wrapper">
+		<div id="header">
+			<h2>>○○○ 병원 예약시스템</h2>
+		</div>
+	</div>
+	<div id="container">
+		<h3>진료 시간 생성</h3>
+		<form action="#" th:action="@{/makeplace}" th:object="${place}"
+			method="post">
+			<table>
+				<tbody>
+					<tr>
+						<td><label>대기 번호</label></td>
+						<td><input type="text" th:value="*{id}" th:field="*{id}" /></td>
+					</tr>
+					<tr>
+						<td><label>진료실 번호</label></td>
+						<td><input type="text" th:value="*{doctorroom}" th:field="*{doctorroom}" /></td>
+					</tr>
+					<tr>
+						<td><label>진료 시간</label></td>
+						<td><input type="text" th:value="*{consultation_hours}" th:field="*{consultation_hours}" /></td>
+					</tr>
+					<tr>
+						<td><label></label></td>
+						<td><input type="submit" value="save" class="save" /></td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	<td><input type="button" value="Back"
+		onclick="window.location.href='/reserv'; return false" class="save" /></td>
+	</div>
+
+</body>
+</html>
