@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <title>Title</title>
 
-  <link th:href="@{css/styles.css}" rel="stylesheet" />
+  <link th:href="@{/css/styles.css}" rel="stylesheet" />
 </head>
 <body>
 <!-- HEADER -->
 <div th:insert="~{common/header::header}"></div>
 
-<a th:href="@{/post}">글쓰기</a>
+<a th:href="@{/board/post}">글쓰기</a>
 
 <table>
     <thead>
@@ -29,7 +29,7 @@
             <span th:text="${board.id}"></span>
         </td>
         <td>
-            <a th:href="@{'/post/' + ${board.id}}">
+            <a th:href="@{'/board/post/' + ${board.id}}">
                 <span th:text="${board.title}"></span>
             </a>
         </td>
